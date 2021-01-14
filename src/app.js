@@ -1,15 +1,14 @@
 "use strict";
 
-import Home from "./views/pages/Home.js";
-import About from "./views/pages/About.js";
-import Error404 from "./views/pages/Error404.js";
-import PostShow from "./views/pages/PostShow.js";
-import Register from "./views/pages/Register.js";
-
-import Navbar from "./views/components/Navbar.js";
-import Bottombar from "./views/components/Bottombar.js";
-
 import Utils from "./services/Utils.js";
+import { BottomBar, NavBar } from "./views/components/index.js";
+import {
+  Home,
+  About,
+  Error404,
+  PostShow,
+  Register,
+} from "./views/pages/index.js";
 
 // Список поддерживаемых маршрутов. Любой URL-адрес, отличный от этих маршрутов, вызовет ошибку 404
 const routes = {
@@ -19,18 +18,22 @@ const routes = {
   "/register": Register,
 };
 
-// Код роутера. Принимает URL-адрес, сверяется со списком поддерживаемых маршрутов и затем отображает соответствующую страницу содержимого.
+const isFetch = {
+  "/": true,
+};
+
 const router = async () => {
   // Элемент представления отложенной загрузки:
   const header = document.getElementById("header_container") || null;
-  const content = null || document.getElementById("page_container") ;
+  const content = document.getElementById("page_container") || null;
   const footer = document.getElementById("footer_container") || null;
 
   // Визуализировать верхний и нижний колонтитулы страницы
-  header.innerHTML = await Navbar.render();
-  await Navbar.after_render();
-  footer.innerHTML = await Bottombar.render();
-  await Bottombar.after_render();
+
+  header.innerHTML = await NavBar.render();
+  await NavBar.after_render();
+  footer.innerHTML = await BottomBar.render();
+  await BottomBar.after_render();
 
   //Get the parsed URl from the addressbar
   let request = Utils.parseRequestURL();
@@ -41,12 +44,16 @@ const router = async () => {
     (request.id ? "/:id" : "") +
     (request.verb ? "/" + request.verb : "");
 
-  // Получите страницу из нашего хеша поддерживаемых маршрутов.
   let page = routes[parsedURL] ? routes[parsedURL] : Error404;
+  let hasFetch = isFetch[parsedURL] ? isFetch[parsedURL] : false;
 
   if (content) {
     content.innerHTML = await page.render();
-    await page.after_render();
+    if (hasFetch) {
+      content.innerHTML = await page.after_render();
+    } else {
+      await page.after_render();
+    }
   }
 };
 

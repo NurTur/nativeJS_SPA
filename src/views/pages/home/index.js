@@ -3,10 +3,10 @@ import { getPostsList } from "./model.js";
 
 let Home = {
   render: async () => {
-    return Html({ posts: null });
+    return Html({ posts: "" });
   },
   after_render: async () => {
-    let posts = await getPostsList()
+    let posts = await getPostsList();
     return Html({ posts });
   },
 };

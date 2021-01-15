@@ -4,7 +4,7 @@ import { getPost } from "./model.js";
 
 let PostShow = {
   render: async () => {
-    return Html({ post: null });
+    return Html({ post: '' });
   },
   after_render: async () => {
     let request = Utils.parseRequestURL();

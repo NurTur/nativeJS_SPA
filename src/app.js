@@ -20,6 +20,7 @@ const routes = {
 
 const isFetch = {
   "/": true,
+  "/p/:id": true,
 };
 
 const router = async () => {
@@ -47,13 +48,11 @@ const router = async () => {
   let page = routes[parsedURL] ? routes[parsedURL] : Error404;
   let hasFetch = isFetch[parsedURL] ? isFetch[parsedURL] : false;
 
-  if (content) {
-    content.innerHTML = await page.render();
-    if (hasFetch) {
-      content.innerHTML = await page.after_render();
-    } else {
-      await page.after_render();
-    }
+  content.innerHTML = await page.render();
+  if (hasFetch) {
+    content.innerHTML = await page.after_render();
+  } else {
+    await page.after_render();
   }
 };
 

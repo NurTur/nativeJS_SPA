@@ -1,10 +1,10 @@
 import Html from "./html.js";
 
-let About = {
+let Error404 = {
   render: async () => {
     return Html();
   },
   after_render: async () => {},
 };
 
-export default About;
+export default Error404;

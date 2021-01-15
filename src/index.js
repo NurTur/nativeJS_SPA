@@ -10,6 +10,7 @@ import {
   Register,
 } from "./views/pages/index.js";
 
+
 // Список поддерживаемых маршрутов. Любой URL-адрес, отличный от этих маршрутов, вызовет ошибку 404
 const routes = {
   "/": Home,
@@ -36,7 +37,6 @@ const router = async () => {
   footer.innerHTML = await BottomBar.render();
   await BottomBar.after_render();
 
-  //Get the parsed URl from the addressbar
   let request = Utils.parseRequestURL();
 
   // Проанализируйте URL-адрес и, если он содержит часть идентификатора, измените его на строку ": id"

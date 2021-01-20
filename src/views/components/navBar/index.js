@@ -1,8 +1,8 @@
-import Html from "./html.js";
+import Template from "./template.js";
 
 let NavBar = {
   render: async () => {
-    return Html();
+    return Template();
   },
   after_render: async () => {},
 };

@@ -1,5 +1,5 @@
+import Utils from "@/services/Utils.js";
 import Template from "./template.js";
-import Utils from "./../../../services/Utils.js";
 import { getPost } from "./model.js";
 
 let PostShow = {

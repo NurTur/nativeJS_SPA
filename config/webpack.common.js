@@ -5,7 +5,6 @@ const merge = require("webpack-merge");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-
 const APP_DIR = path.resolve(__dirname, "../src");
 //const apiUrl = require("./apiUrl.js");
 
@@ -15,9 +14,9 @@ module.exports = (env) => {
     {
       entry: [APP_DIR],
       output: {
-         filename: '[name].[contenthash].js',
-         path: path.join(__dirname, "../dist"),
-       },
+        filename: "[name].[contenthash].js",
+        path: path.join(__dirname, "../dist"),
+      },
       devtool: PLATFORM === "production" ? "source-map" : "inline-source-map",
       resolve: {
         extensions: [".js"],
@@ -67,13 +66,16 @@ module.exports = (env) => {
       plugins: [
         new HtmlWebpackPlugin({
           template: "./src/index.html",
-         // favicon: "./public/index.html",
-          hash: true
+          // favicon: "./public/index.html",
+          hash: true,
         }),
         new webpack.DefinePlugin({
           "process.env.VERSION": JSON.stringify(env.VERSION),
           "process.env.PLATFORM": JSON.stringify(env.PLATFORM),
         }),
+        // new MiniCssExtractPlugin({
+        //   filename: "css/index.css",
+        // }),
       ],
       devServer: {
         historyApiFallback: true,
@@ -81,13 +83,12 @@ module.exports = (env) => {
         compress: true,
         port: 2000,
       },
-    //   externals: {
-    //     // global app config object
-    //     config: JSON.stringify({
-    //       apiUrl: apiUrl.API_BACKEND_URL,
-    //     }),
-    //   },
- 
+      //   externals: {
+      //     // global app config object
+      //     config: JSON.stringify({
+      //       apiUrl: apiUrl.API_BACKEND_URL,
+      //     }),
+      //   },
     },
   ]);
 };

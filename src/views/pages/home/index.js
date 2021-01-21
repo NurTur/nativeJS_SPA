@@ -2,7 +2,7 @@ import Template from "./template";
 import { getPostsList } from "./model";
 
 let Home = {
-  render: async () => {
+  render: () => {
     return Template({ posts: "" });
   },
   after_render: async () => {

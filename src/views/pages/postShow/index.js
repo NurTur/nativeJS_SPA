@@ -3,7 +3,7 @@ import Template from "./template";
 import { getPost } from "./model";
 
 let PostShow = {
-  render: async () => {
+  render: () => {
     return Template({ post: '' });
   },
   after_render: async () => {

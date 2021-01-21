@@ -1,10 +1,10 @@
 import Template from "./template";
 
 let About = {
-  render: async () => {
+  render: () => {
     return Template();
   },
-  after_render: async () => {},
+  after_render: () => {},
 };
 
 export default About;

@@ -1,10 +1,10 @@
 import Template from "./template";
 
 let Register = {
-  render: async () => {
+  render: () => {
     return Template();
   },
-  after_render: async () => {
+  after_render: () => {
     document
       .getElementById("register_submit_btn")
       .addEventListener("click", () => {

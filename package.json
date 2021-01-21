@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --host=0.0.0.0 --mode development --config config/webpack.common.js --open --hot --history-api-fallback --env.PLATFORM=local --env.VERSION=stag",
-    "build": "webpack --mode production --config config/webpack.prod.js --env.PLATFORM=production --env.VERSION=stag",
-    "server": "live-server src --verbose"
+    "build": "webpack --mode production --config config/webpack.prod.js --env.PLATFORM=production --env.VERSION=stag"
   },
   "repository": {
     "type": "git",
@@ -18,18 +17,20 @@
     "url": "https://github.com/NurTur/nativeJS_SPA/issues"
   },
   "homepage": "https://github.com/NurTur/nativeJS_SPA#readme",
-  "dependencies": {
-    "bulma": "^0.9.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/polyfill": "^7.12.1",
     "@babel/runtime": "^7.12.5",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.2.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.26.13",
+    "bulma": "^0.9.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "compression-webpack-plugin": "^7.1.2",
     "css-loader": "^5.0.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.1",

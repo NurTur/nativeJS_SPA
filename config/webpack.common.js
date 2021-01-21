@@ -12,7 +12,7 @@ module.exports = (env) => {
   const { PLATFORM, VERSION } = env;
   return merge([
     {
-      entry: [APP_DIR],
+      entry: ["@babel/polyfill",APP_DIR],
       output: {
         filename: "[name].[contenthash].js",
         path: path.join(__dirname, "../dist"),
@@ -73,15 +73,12 @@ module.exports = (env) => {
           "process.env.VERSION": JSON.stringify(env.VERSION),
           "process.env.PLATFORM": JSON.stringify(env.PLATFORM),
         }),
-        // new MiniCssExtractPlugin({
-        //   filename: "css/index.css",
-        // }),
       ],
       devServer: {
         historyApiFallback: true,
         contentBase: path.join(__dirname, "../dist"),
         compress: true,
-        port: 2000,
+        port: 3030,
       },
       //   externals: {
       //     // global app config object
@@ -89,6 +86,7 @@ module.exports = (env) => {
       //       apiUrl: apiUrl.API_BACKEND_URL,
       //     }),
       //   },
+
     },
   ]);
 };

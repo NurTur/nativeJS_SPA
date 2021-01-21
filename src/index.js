@@ -2,15 +2,8 @@
 
 import Utils from "@/services/Utils";
 import { BottomBar, NavBar } from "@/views/components/index.js";
-import {
-  Home,
-  About,
-  Error404,
-  PostShow,
-  Register,
-} from "@/views/pages";
+import { Home, About, Error404, PostShow, Register } from "@/views/pages";
 import "@/index.scss";
-
 
 const routes = {
   "/": Home,
@@ -25,14 +18,13 @@ const isFetch = {
 };
 
 const router = async () => {
-  const root = document.getElementById("app") || null; 
+  const root = document.getElementById("app") || null;
   const header = root.querySelector(".header_container") || null;
   const content = root.querySelector(".page_container") || null;
   const footer = root.querySelector(".footer_container") || null;
-  
+
   header.innerHTML = NavBar.render();
   footer.innerHTML = BottomBar.render();
-  
 
   let request = Utils.parseRequestURL();
 
@@ -48,7 +40,7 @@ const router = async () => {
   content.innerHTML = await page.render();
   if (hasFetch) {
     content.innerHTML = await page.after_render();
-  } 
+  }
 };
 
 // Listen on hash change:

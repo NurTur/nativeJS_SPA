@@ -1,6 +1,6 @@
-import Utils from "@/services/Utils.js";
-import Template from "./template.js";
-import { getPost } from "./model.js";
+import Utils from "@/services/Utils";
+import Template from "./template";
+import { getPost } from "./model";
 
 let PostShow = {
   render: async () => {

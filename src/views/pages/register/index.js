@@ -1,4 +1,4 @@
-import Template from "./template.js";
+import Template from "./template";
 
 let Register = {
   render: async () => {

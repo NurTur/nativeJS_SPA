@@ -1,15 +1,15 @@
 "use strict";
 
-import Utils from "./services/Utils.js";
-import { BottomBar, NavBar } from "./views/components/index.js";
+import Utils from "@/services/Utils";
+import { BottomBar, NavBar } from "@/views/components/index.js";
 import {
   Home,
   About,
   Error404,
   PostShow,
   Register,
-} from "./views/pages/index.js";
-import "./index.scss";
+} from "@/views/pages";
+import "@/index.scss";
 
 
 // Список поддерживаемых маршрутов. Любой URL-адрес, отличный от этих маршрутов, вызовет ошибку 404

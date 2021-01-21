@@ -1,5 +1,5 @@
-import Template from "./template.js";
-import { getPostsList } from "./model.js";
+import Template from "./template";
+import { getPostsList } from "./model";
 
 let Home = {
   render: async () => {

@@ -1,4 +1,4 @@
-import Template from "./template.js";
+import Template from "./template";
 
 let Error404 = {
   render: async () => {

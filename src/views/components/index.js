@@ -1,3 +1,3 @@
-import BottomBar from "./bottomBar/index.js";
-import NavBar from "./navBar/index.js";
+import BottomBar from "./bottomBar";
+import NavBar from "./navBar";
 export { BottomBar, NavBar };

@@ -12,7 +12,6 @@ import {
 import "@/index.scss";
 
 
-// Список поддерживаемых маршрутов. Любой URL-адрес, отличный от этих маршрутов, вызовет ошибку 404
 const routes = {
   "/": Home,
   "/about": About,
@@ -26,14 +25,10 @@ const isFetch = {
 };
 
 const router = async () => {
-  // Элемент представления отложенной загрузки:
-  const root = document.getElementById("app") || null;
-  
+  const root = document.getElementById("app") || null; 
   const header = root.querySelector(".header_container") || null;
   const content = root.querySelector(".page_container") || null;
   const footer = root.querySelector(".footer_container") || null;
- 
-
   
   header.innerHTML = await NavBar.render();
   await NavBar.after_render();

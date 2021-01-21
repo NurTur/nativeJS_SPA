@@ -26,12 +26,14 @@ const isFetch = {
 
 const router = async () => {
   // Элемент представления отложенной загрузки:
-  const header = document.getElementById("header_container") || null;
-  const content = document.getElementById("page_container") || null;
-  const footer = document.getElementById("footer_container") || null;
+  const root = document.getElementById("app") || null;
+  
+  const header = root.querySelector(".header_container") || null;
+  const content = root.querySelector(".page_container") || null;
+  const footer = root.querySelector(".footer_container") || null;
+ 
 
-  // Визуализировать верхний и нижний колонтитулы страницы
-
+  
   header.innerHTML = await NavBar.render();
   await NavBar.after_render();
   footer.innerHTML = await BottomBar.render();

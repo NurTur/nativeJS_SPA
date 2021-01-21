@@ -30,10 +30,9 @@ const router = async () => {
   const content = root.querySelector(".page_container") || null;
   const footer = root.querySelector(".footer_container") || null;
   
-  header.innerHTML = await NavBar.render();
-  await NavBar.after_render();
-  footer.innerHTML = await BottomBar.render();
-  await BottomBar.after_render();
+  header.innerHTML = NavBar.render();
+  footer.innerHTML = BottomBar.render();
+  
 
   let request = Utils.parseRequestURL();
 
@@ -49,13 +48,11 @@ const router = async () => {
   content.innerHTML = await page.render();
   if (hasFetch) {
     content.innerHTML = await page.after_render();
-  } else {
-    await page.after_render();
-  }
+  } 
 };
 
 // Listen on hash change:
 window.addEventListener("hashchange", router);
 
 // Listen on page load:
-window.addEventListener("load", router);
+window.addEventListener("DOMContentLoaded", router);

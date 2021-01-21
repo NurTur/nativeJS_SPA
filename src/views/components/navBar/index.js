@@ -1,10 +1,10 @@
 import Template from "./template";
 
 let NavBar = {
-  render: async () => {
+  render: () => {
     return Template();
   },
-  after_render: async () => {},
+  after_render: () => {},
 };
 
 export default NavBar;

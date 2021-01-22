@@ -23,8 +23,8 @@ const router = async () => {
   const content = root.querySelector(".page_container") || null;
   const footer = root.querySelector(".footer_container") || null;
 
-  header.innerHTML = NavBar.render();
-  footer.innerHTML = BottomBar.render();
+  header.innerHTML = NavBar();
+  footer.innerHTML = BottomBar();
 
   let request = Utils.parseRequestURL();
 

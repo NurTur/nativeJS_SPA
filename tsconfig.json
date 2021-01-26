@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "sourceMap": true,
+    "allowJs": true,
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "allowSyntheticDefaultImports": true,
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": ["es2016", "dom"]
+  }
+}
+
+//   "baseUrl": "./",
+
+//   "sourceMap": true,
+//   "declaration": false,
+//   "downlevelIteration": true,
+//   "experimentalDecorators": true,
+//   "module": "commonjs",
+//   "moduleResolution": "node",
+//   "importHelpers": true,
+//   "target": "es2015",
+//   "allowSyntheticDefaultImports": true,
+//   "paths": {
+//     "@services/*": [
+//       "src/services/*"
+//     ],
+//     "@components": [
+//       "src/views/components/index.ts"
+//     ],
+//     "@pages": [
+//       "src/views/pages/index.ts"
+//     ]
+//   }
+// }

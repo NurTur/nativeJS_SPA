@@ -19,18 +19,18 @@ module.exports = (env) => {
       },
       devtool: PLATFORM === "production" ? "source-map" : "inline-source-map",
       resolve: {
-        extensions: [".js"],
+        extensions: [ '.tsx', '.ts', '.js' ],
         alias: {
-          "@": path.resolve(__dirname, "../src/"),
+          '@': path.resolve(__dirname, "../src/"),
           public: path.resolve(__dirname, "../public/"),
         },
       },
       module: {
         rules: [
           {
-            test: /\.(js|jsx)$/,
+            test: /\.(ts|tsx)$/,
             exclude: /node_modules/,
-            use: ["babel-loader"],
+            use: ["babel-loader",'ts-loader'],
           },
           {
             test: /\.(scss)$/,

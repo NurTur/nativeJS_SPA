@@ -1,4 +1,4 @@
-export const getPost = async (id) => {
+export const getPost = async (id:string) => {
   const options = {
      method: 'GET',
      headers: {

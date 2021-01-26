@@ -1,7 +1,7 @@
 "use strict";
 
 import Utils from "@/services/Utils";
-import { BottomBar, NavBar } from "@/views/components/index.js";
+import { BottomBar, NavBar } from "@/views/components";
 import { Home, About, Error404, PostShow, Register } from "@/views/pages";
 import "@/index.scss";
 

@@ -1,7 +1,11 @@
+import { CircleLoader } from "@/views/components";
+
 export default function ({posts}) {
+  const loadPosts = posts ? '': CircleLoader();
   return `
         <section class="section">
             <h1> Home </h1>
+            ${loadPosts}
             <ul>
                 ${
                   posts &&

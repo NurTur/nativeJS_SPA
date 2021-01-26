@@ -1,14 +1,17 @@
 import { CircleLoader } from "@/views/components";
 
+function showContent(post) {
+  return `<h1> Post Id : ${post.id || ""}</h1>
+  <p> Post Title : ${post.title || ""} </p>
+  <p> Post Content : ${post.content || ""} </p>
+  <p> Post Author : ${post.name || ""} </p>`;
+}
+
 export default function ({ post }) {
-  const loadPost = post ? '': CircleLoader();
+  const content = post ? showContent(post) : CircleLoader();
   return `
     <section class="section">
-    ${loadPost}
-      <h1> Post Id : ${ post && post.id }</h1>
-      <p> Post Title : ${ post && post.title } </p>
-      <p> Post Content : ${ post && post.content } </p>
-      <p> Post Author : ${ post && post.name } </p>
+      ${content}  
     </section>
     `;
 }

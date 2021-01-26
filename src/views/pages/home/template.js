@@ -1,22 +1,19 @@
 import { CircleLoader } from "@/views/components";
 
-export default function ({posts}) {
-  const loadPosts = posts ? '': CircleLoader();
+function showContent(posts) {
+  return `<h1> Home </h1>
+          <ul>
+          ${posts
+            .map((item) => `<li><a href="#/p/${item.id}">${item.title}</a></li>`)
+            .join("\n ")}
+          </ul>`;
+}
+
+export default function ({ posts }) {
+  const content = posts ? showContent(posts) : CircleLoader();
   return `
         <section class="section">
-            <h1> Home </h1>
-            ${loadPosts}
-            <ul>
-                ${
-                  posts &&
-                  posts
-                    .map(
-                      (post) =>
-                        `<li><a href="#/p/${post.id}">${post.title}</a></li>`
-                    )
-                    .join("\n ")
-                }
-            </ul>
+            ${content}
         </section>
     `;
 }

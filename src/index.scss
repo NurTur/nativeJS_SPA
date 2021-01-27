@@ -1,9 +1,46 @@
+
 @import "~bulma/bulma";
 @import "@/views/components/bottomBar/index.scss";
 @import "@/views/components/circleLoader/index.scss";
 @import "@/views/components/navBar/index.scss";
 
-html, body {
-    margin: 0;
-    padding: 0;
+@import './media';
+
+@font-face {
+  font-family: 'Roboto Condensed Regular';
+  src: url('./static/fonts/RobotoCondensedRegular.eot');
+  src: url('./static/fonts/RobotoCondensedRegular.ttf') format('truetype'),
+    url('./static/fonts/RobotoCondensedRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed Bold';
+  src: url('./static/fonts/RobotoCondensedBold.eot');
+  src: url('./static/fonts/RobotoCondensedBold.ttf') format('truetype'),
+    url('./static/fonts/RobotoCondensedBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed Light';
+  src: url('./static/fonts/RobotoCondensedLight.eot');
+  src: url('./static/fonts/RobotoCondensedLight.ttf') format('truetype'),
+    url('./static/fonts/RobotoCondensedLight.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+*,
+*::before,
+*::after {
+  box-shadow: none;
+  outline: none;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
 }

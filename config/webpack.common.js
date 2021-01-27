@@ -12,54 +12,73 @@ module.exports = (env) => {
   const { PLATFORM, VERSION } = env;
   return merge([
     {
-      entry: ["@babel/polyfill",APP_DIR],
+      entry: ["@babel/polyfill", APP_DIR],
       output: {
-        filename: "[name].[contenthash].js",
+        filename: "[name].[hash].js",
         path: path.join(__dirname, "../dist"),
       },
       devtool: PLATFORM === "production" ? "source-map" : "inline-source-map",
       resolve: {
-        extensions: [ '.tsx', '.ts', '.js' ],
+        extensions: [".tsx", ".ts", ".js"],
         alias: {
-          '@': path.resolve(__dirname, "../src/"),
-          public: path.resolve(__dirname, "../public/"),
+          "@": path.resolve(__dirname, "../src/"),
         },
       },
+      // experiments: {
+      //   asset: true,
+      // },
       module: {
         rules: [
           {
             test: /\.(ts|tsx)$/,
             exclude: /node_modules/,
-            use: ["babel-loader",'ts-loader'],
+            use: ["babel-loader", "ts-loader"],
           },
           {
             test: /\.(scss)$/,
             use: [
               PLATFORM === "production"
-                ? MiniCssExtractPlugin.loader
-                : "style-loader",
+                ? {
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                      publicPath: "",
+                    },
+                  }
+                : 
+              "style-loader",
               "css-loader",
               "sass-loader",
             ],
           },
           {
             test: /\.css$/,
-            use: ["style-loader", "css-loader"],
+            use: ["css-loader"],
           },
           {
-            test: /\.(png|jpe?g|gif|woff|woff2|eot|ttf|otf)$/i,
+            test: /\.(gif|woff|woff2|eot|ttf|otf)$/i,
             use: [
               {
                 loader: "file-loader",
                 options: {
-                  name: "dirname/[contenthash].[ext]",
+                  name: "static/fonts/[hash].[ext]",
                 },
               },
             ],
           },
+          // {
+          //   test: /\.svg$/,
+          //   loader: "svg-inline-loader",
+          // },
           {
-            test: /\.svg$/,
-            loader: "svg-inline-loader",
+            test: /\.(svg|jpg|png)$/,
+            use: [
+              {
+                loader: 'url-loader',
+                options: {
+                  limit: false,
+                },
+              },
+            ],
           },
         ],
       },
@@ -86,7 +105,6 @@ module.exports = (env) => {
       //       apiUrl: apiUrl.API_BACKEND_URL,
       //     }),
       //   },
-
     },
   ]);
 };

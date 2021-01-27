@@ -1,0 +1,44 @@
+@import 'variables';
+
+// Media
+$extra-small: 544px;
+$small: 768px;
+$medium: 1024px;
+$laptop: 1280px;
+$large: 1390px;
+
+@mixin respond-to($media) {
+  @if $media == extra-small-screen {
+    @media only screen and (max-width: $extra-small) {
+      @content;
+    }
+  } @else if $media == small-screen {
+    @media only screen and (min-width: $extra-small + 1) and (max-width: $small + 1) {
+      @content;
+    }
+  } @else if $media == medium-screen {
+    @media only screen and (min-width: $small + 1) and (max-width: $medium) {
+      @content;
+    }
+  } @else if $media == laptop {
+    @media only screen and (min-width: $medium + 1) and (max-width: $laptop + 1) {
+      @content;
+    }
+  } @else if $media == large-screen {
+    @media only screen and (min-width: $laptop + 1) and (max-width: $large) {
+      @content;
+    }
+  } @else if $media == big-screen {
+    @media only screen and (min-width: $large) {
+      @content;
+    }
+  } @else if $media == landscape {
+    @media only screen and (orientation: landscape) {
+      @content;
+    }
+  } @else if $media == portrait {
+    @media only screen and (orientation: portrait) {
+      @content;
+    }
+  }
+}

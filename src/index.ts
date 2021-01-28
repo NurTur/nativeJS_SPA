@@ -1,8 +1,8 @@
 "use strict";
 
-import Utils from "./services/Utils";
-import { BottomBar, NavBar } from "./views/components";
-import { Home, About, PostShow, Register, Error404 } from "./views/pages";
+import Utils from "@/services/Utils";
+import { BottomBar, NavBar } from "@/views/components";
+import { Home, About, PostShow, Register, Error404 } from "@/views/pages";
 import "@/index.scss";
 
 interface IPage {

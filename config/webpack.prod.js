@@ -15,6 +15,7 @@ const prodConfiguration = (env) => {
       optimization: {
         minimize: true,
         minimizer: [
+       
           new TerserPlugin(),
           new OptimizeCssAssetsPlugin({
             cssProcessorOptions: {
@@ -27,11 +28,11 @@ const prodConfiguration = (env) => {
       },
 
       plugins: [
-        new MiniCssExtractPlugin({
-          filename: "main.[hash].css",
-        }),
-        new OptimizeCssAssetsPlugin(),
         new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({
+          filename: "main.[contenthash].css",
+        }),
+       
       ],
     },
   ]);

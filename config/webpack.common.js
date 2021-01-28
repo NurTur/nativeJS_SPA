@@ -19,20 +19,27 @@ module.exports = (env) => {
       },
       devtool: PLATFORM === "production" ? "source-map" : "inline-source-map",
       resolve: {
-        extensions: [".tsx", ".ts", ".js"],
+        extensions: [".js", ".ts", ".tsx"],
         alias: {
           "@": path.resolve(__dirname, "../src/"),
         },
       },
-      // experiments: {
-      //   asset: true,
-      // },
       module: {
         rules: [
           {
-            test: /\.(ts|tsx)$/,
+            test: /\.(js)$/,
             exclude: /node_modules/,
-            use: ["babel-loader", "ts-loader"],
+            use: ["babel-loader"],
+          },
+          {
+            test: /\.(ts)$/,
+            exclude: /node_modules/,
+            use: [
+              {
+                loader: "ts-loader",
+                options: { compilerOptions: { noEmit: false } },
+              },
+            ],
           },
           {
             test: /\.(scss)$/,
@@ -44,8 +51,7 @@ module.exports = (env) => {
                       publicPath: "",
                     },
                   }
-                : 
-              "style-loader",
+                : "style-loader",
               "css-loader",
               "sass-loader",
             ],
@@ -60,22 +66,19 @@ module.exports = (env) => {
               {
                 loader: "file-loader",
                 options: {
-                  name: "static/fonts/[hash].[ext]",
+                  name: "static/fonts/[name].[ext]",
                 },
               },
             ],
           },
-          // {
-          //   test: /\.svg$/,
-          //   loader: "svg-inline-loader",
-          // },
           {
-            test: /\.(svg|jpg|png)$/,
+            test: /\.(jpg|png)$/,
             use: [
               {
-                loader: 'url-loader',
+                loader: "url-loader",
                 options: {
                   limit: false,
+                  name: "static/images/[name].[ext]",
                 },
               },
             ],
